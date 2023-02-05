@@ -1,0 +1,626 @@
+[gd_scene load_steps=11 format=3 uid="uid://bspkmivb4231k"]
+
+[ext_resource type="FontFile" uid="uid://dfi5j804u0r2v" path="res://Data/Fonts/RobotoCondensed-Bold.ttf" id="1_auxyk"]
+[ext_resource type="Script" path="res://Scripts/Game/Main_Menu.gd" id="1_u4et0"]
+[ext_resource type="StyleBox" uid="uid://be0a3mde2032c" path="res://Data/Themes/Flat Styles/dropdown_style_box_flat.tres" id="3_orttl"]
+[ext_resource type="AudioStream" uid="uid://bv7fjf27eutcq" path="res://Art/Music/password-infinity-123276.mp3" id="4_cb1fh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttvul"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cbaw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w31eh"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.258824, 0.258824, 0.258824, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ea10v"]
+content_margin_left = 10.0
+content_margin_top = 0.0
+content_margin_right = 10.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6eec1"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1al2c"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Main_Menu_Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u4et0")
+
+[node name="Game_Title" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 158.0
+offset_top = 143.0
+offset_right = 1661.0
+offset_bottom = 407.0
+theme_override_fonts/font = ExtResource("1_auxyk")
+theme_override_font_sizes/font_size = 128
+text = "G A M E - T I T L E"
+vertical_alignment = 1
+
+[node name="Build_Title" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 158.0
+offset_top = 407.0
+offset_right = 1661.0
+offset_bottom = 475.0
+theme_override_fonts/font = ExtResource("1_auxyk")
+theme_override_font_sizes/font_size = 32
+text = "--------BUILD_0.01--------"
+vertical_alignment = 1
+
+[node name="Main_Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 158.0
+offset_top = 533.0
+offset_right = 529.0
+offset_bottom = 977.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ttvul")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Play_Button" type="Button" parent="Main_Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_auxyk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8cbaw")
+text = "PLAY GAME"
+alignment = 0
+
+[node name="Character_Button" type="Button" parent="Main_Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_auxyk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8cbaw")
+text = "LOAD CHARACTER"
+alignment = 0
+
+[node name="Credits_Button" type="Button" parent="Main_Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_auxyk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8cbaw")
+text = "CREDITS
+"
+alignment = 0
+
+[node name="Options_Button" type="Button" parent="Main_Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_auxyk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8cbaw")
+text = "OPTIONS
+"
+alignment = 0
+
+[node name="Exit_Button" type="Button" parent="Main_Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_auxyk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8cbaw")
+text = "QUIT
+"
+alignment = 0
+
+[node name="Options_Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ttvul")
+
+[node name="Panel2" type="Panel" parent="Options_Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -920.0
+offset_top = -500.0
+offset_right = 920.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(960, 540)
+
+[node name="Settings_TabContainer" type="TabContainer" parent="Options_Panel/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_w31eh")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_ea10v")
+theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_6eec1")
+tab_alignment = 1
+
+[node name="VIDEO" type="TabBar" parent="Options_Panel/Panel2/Settings_TabContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Panel" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 72.0
+grow_horizontal = 2
+text = "VIDEO SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -867.0
+offset_right = 400.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Resolution_Dropdown_Button" type="OptionButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+tooltip_text = "This will change your game resolution"
+theme_override_styles/focus = ExtResource("3_orttl")
+theme_override_styles/disabled = ExtResource("3_orttl")
+alignment = 2
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Resolution_Dropdown_Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "RESOLUTIONS"
+vertical_alignment = 1
+
+[node name="Refresh_Rate_Dropdown_Button" type="OptionButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/focus = ExtResource("3_orttl")
+theme_override_styles/disabled = ExtResource("3_orttl")
+alignment = 2
+item_count = 5
+popup/item_0/text = "144"
+popup/item_0/id = 0
+popup/item_1/text = "120"
+popup/item_1/id = 1
+popup/item_2/text = "60"
+popup/item_2/id = 2
+popup/item_3/text = "40"
+popup/item_3/id = 3
+popup/item_4/text = "30"
+popup/item_4/id = 4
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Refresh_Rate_Dropdown_Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "REFRESH RATE"
+vertical_alignment = 1
+
+[node name="Fullscreen_Dropdown_Button" type="OptionButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/focus = ExtResource("3_orttl")
+theme_override_styles/disabled = ExtResource("3_orttl")
+alignment = 2
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Fullscreen_Dropdown_Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "WINDOW SETTINGS"
+vertical_alignment = 1
+
+[node name="Vsync_Dropdown_Button" type="OptionButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/focus = ExtResource("3_orttl")
+theme_override_styles/disabled = ExtResource("3_orttl")
+alignment = 2
+item_count = 3
+popup/item_0/text = "Off"
+popup/item_0/id = 0
+popup/item_1/text = "On"
+popup/item_1/id = 1
+popup/item_2/text = "Adaptive"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Vsync_Dropdown_Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "VSYNC"
+vertical_alignment = 1
+
+[node name="Anti Aliasing_Dropdown_Button" type="OptionButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/focus = ExtResource("3_orttl")
+theme_override_styles/disabled = ExtResource("3_orttl")
+alignment = 2
+item_count = 3
+popup/item_0/text = "Off"
+popup/item_0/id = 0
+popup/item_1/text = "On"
+popup/item_1/id = 1
+popup/item_2/text = "Adaptive"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Anti Aliasing_Dropdown_Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "ANTI ALIASING"
+vertical_alignment = 1
+
+[node name="TAA_CheckButton" type="CheckButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/TAA_CheckButton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "ENABLE TAA"
+vertical_alignment = 1
+
+[node name="Bloom_CheckButton" type="CheckButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Bloom_CheckButton"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "ENABLE BLOOM"
+vertical_alignment = 1
+
+[node name="Motion_Blur_CheckButton2" type="CheckButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Motion_Blur_CheckButton2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "ENABLE MOTION BLUR"
+vertical_alignment = 1
+
+[node name="SSAO_CheckButton3" type="CheckButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SSAO_CheckButton3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "ENABLE SSAO"
+vertical_alignment = 1
+
+[node name="SSAO_Quality_Dropdown_Button" type="OptionButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/focus = ExtResource("3_orttl")
+theme_override_styles/disabled = ExtResource("3_orttl")
+alignment = 2
+item_count = 4
+popup/item_0/text = "Ultra"
+popup/item_0/id = 0
+popup/item_1/text = "High"
+popup/item_1/id = 1
+popup/item_2/text = "Medium"
+popup/item_2/id = 2
+popup/item_3/text = "Low"
+popup/item_3/id = 3
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SSAO_Quality_Dropdown_Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "ANTI ALIASING QUALITY"
+vertical_alignment = 1
+
+[node name="Back_Button" type="Button" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "BACK"
+
+[node name="Panel2" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 72.0
+grow_horizontal = 2
+text = "INFO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1al2c")
+
+[node name="MarginContainer" type="MarginContainer" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="Tool_Tip_Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel2/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "INFORMATION TEXT"
+horizontal_alignment = 1
+
+[node name="AUDIO" type="TabBar" parent="Options_Panel/Panel2/Settings_TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Panel" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 72.0
+grow_horizontal = 2
+text = "AUDIO SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -867.0
+offset_right = 400.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Master_Panel" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Master_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+columns = 2
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Master_Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "MASTER"
+vertical_alignment = 1
+
+[node name="Master_Slider" type="HSlider" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Master_Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.02
+value = 0.5
+
+[node name="Music_Panel" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Music_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+columns = 2
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Music_Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "MUSIC"
+vertical_alignment = 1
+
+[node name="Music_Slider" type="HSlider" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Music_Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.02
+value = 0.5
+
+[node name="SFX_Panel" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+columns = 2
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel/GridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "SFX"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+
+[node name="SFX_Panel2" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 10
+columns = 2
+
+[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel2/GridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "VOICE"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel2/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 50.0
+
+[node name="Back_Button" type="Button" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -61.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "BACK"
+
+[node name="Panel2" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CONTROLS" type="TabBar" parent="Options_Panel/Panel2/Settings_TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ACCESSIBILITY" type="TabBar" parent="Options_Panel/Panel2/Settings_TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource("4_cb1fh")
+autoplay = true
+bus = &"Music"
+
+[connection signal="toggled" from="Main_Panel/VBoxContainer/Options_Button" to="." method="_on_options_button_toggled"]
+[connection signal="pressed" from="Main_Panel/VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]
+[connection signal="focus_entered" from="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Resolution_Dropdown_Button" to="." method="_on_resolution_dropdown_button_focus_entered"]
+[connection signal="focus_exited" from="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Resolution_Dropdown_Button" to="." method="_on_resolution_dropdown_button_focus_exited"]
+[connection signal="item_selected" from="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Resolution_Dropdown_Button" to="." method="_on_resolution_dropdown_button_item_selected"]
+[connection signal="item_selected" from="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Fullscreen_Dropdown_Button" to="." method="_on_fullscreen_dropdown_button_item_selected"]
+[connection signal="value_changed" from="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Master_Panel/GridContainer/Master_Slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Music_Panel/GridContainer/Music_Slider" to="." method="_on_music_slider_value_changed"]

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dsavu2vpyhnkh"]
+
+[node name="EntityHealthBar" type="ProgressBar"]
+offset_right = 175.0
+offset_bottom = 8.0
+value = 50.0
+show_percentage = false

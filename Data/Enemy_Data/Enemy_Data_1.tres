@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c43er6gk0jpbr"]
+
+[ext_resource type="Script" path="res://Scripts/Data/Character_Resource_Data/Character_Resource.gd" id="1_1qj8h"]
+
+[resource]
+script = ExtResource("1_1qj8h")
+character_class = "Knight"
+character_health = 100.0
+character_stamina = 100.0
+character_strengh = 100.0
+character_intelligence = 100.0
+character_exp = 0.0

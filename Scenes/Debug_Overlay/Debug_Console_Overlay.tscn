@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjv2cqlq4otgl"]
+
+[ext_resource type="Script" path="res://Scripts/Debug/Overlay/DebugOverlay.gd" id="1_nvexp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nymrf"]
+bg_color = Color(0.211765, 0.211765, 0.211765, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_nvexp")
+
+[node name="Debug_Background" type="Panel" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 540.0
+grow_horizontal = 2
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/Debug_Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scroll_Container" type="ScrollContainer" parent="CanvasLayer/Debug_Background/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Console_Label" type="Label" parent="CanvasLayer/Debug_Background/HSplitContainer/Scroll_Container"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "THIS IS A"
+
+[node name="Game_Stat_Label" type="Label" parent="CanvasLayer/Debug_Background/HSplitContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "TEST LABEL... This seems to expand automatically... nice."
+horizontal_alignment = 2
+
+[node name="Console_Input" type="LineEdit" parent="CanvasLayer/Debug_Background"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxFlat_nymrf")
+placeholder_text = "Enter..."
+caret_blink = true
+
+[connection signal="text_submitted" from="CanvasLayer/Debug_Background/Console_Input" to="CanvasLayer" method="_on_console_input_text_submitted"]

@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://d2e41k0s3owiu"]
+
+[node name="Debug_Stats_GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stats_TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_right = 347.0
+offset_bottom = 1080.0
+theme_override_constants/side_margin = 0
+
+[node name="Player" type="TabBar" parent="Stats_TabContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stats_TabContainer/Player"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -364.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Damage_Button" type="Button" parent="Stats_TabContainer/Player/VBoxContainer"]
+layout_mode = 2
+text = "TAKE DAMAGE"
+
+[node name="Exp_Button" type="Button" parent="Stats_TabContainer/Player/VBoxContainer"]
+layout_mode = 2
+text = "ADD EXP"
+
+[node name="Stamina_Button" type="Button" parent="Stats_TabContainer/Player/VBoxContainer"]
+layout_mode = 2
+text = "REDUE STAMINA"
+
+[node name="Strength_Button" type="Button" parent="Stats_TabContainer/Player/VBoxContainer"]
+layout_mode = 2
+text = "REDUCE STRENGTH"
+
+[node name="Reset_Button" type="Button" parent="Stats_TabContainer/Player/VBoxContainer"]
+layout_mode = 2
+text = "RESET ALL STATS"
+
+[node name="Stats_Label" type="Label" parent="Stats_TabContainer/Player"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -364.0
+offset_right = 347.0
+grow_vertical = 0
+text = "PLAYER INFO:"
+
+[node name="Enemy" type="TabBar" parent="Stats_TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Stats_TabContainer/Enemy"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -364.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Damage_Button" type="Button" parent="Stats_TabContainer/Enemy/VBoxContainer"]
+layout_mode = 2
+text = "TAKE DAMAGE"
+
+[node name="Exp_Button" type="Button" parent="Stats_TabContainer/Enemy/VBoxContainer"]
+layout_mode = 2
+text = "ADD EXP"
+
+[node name="Stamina_Button" type="Button" parent="Stats_TabContainer/Enemy/VBoxContainer"]
+layout_mode = 2
+text = "REDUE STAMINA"
+
+[node name="Strength_Button" type="Button" parent="Stats_TabContainer/Enemy/VBoxContainer"]
+layout_mode = 2
+text = "REDUCE STRENGTH"
+
+[node name="Reset_Button" type="Button" parent="Stats_TabContainer/Enemy/VBoxContainer"]
+layout_mode = 2
+text = "RESET ALL STATS"
+
+[node name="Stats_Label" type="Label" parent="Stats_TabContainer/Enemy"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -364.0
+offset_right = 347.0
+grow_vertical = 0
+text = "ENEMY INFO:"

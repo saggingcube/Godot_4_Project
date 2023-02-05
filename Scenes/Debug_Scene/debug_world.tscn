@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=3 uid="uid://b1phsqa7hd0tc"]
+
+[ext_resource type="Material" uid="uid://mvwkwwwwvjo" path="res://Art/Materials/Debug_Materials/Debug_Ground_Mat.tres" id="1_5h601"]
+[ext_resource type="Script" path="res://Scripts/Game/Game_Main.gd" id="1_066le"]
+[ext_resource type="Material" uid="uid://bbl60c37p4n51" path="res://Art/Materials/Debug_Materials/Debug_Ground_Mat_Orange.tres" id="3_8bh8j"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bshon"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_xwfge"]
+sky_material = SubResource("ProceduralSkyMaterial_bshon")
+
+[sub_resource type="Environment" id="Environment_0t4fq"]
+background_mode = 2
+sky = SubResource("Sky_xwfge")
+tonemap_mode = 3
+ssao_enabled = true
+glow_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_a4vtx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8id4c"]
+size = Vector3(50, 0.2, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qf0gf"]
+size = Vector3(50, 0.2, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2a11r"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8cu8s"]
+size = Vector3(50, 4, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ftj5o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u7hj7"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_066le")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0t4fq")
+camera_attributes = SubResource("CameraAttributesPractical_a4vtx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="----------------------------------------" type="Node" parent="."]
+
+[node name="ENV" type="Node3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="ENV"]
+
+[node name="Floor_Mesh" type="MeshInstance3D" parent="ENV/Floor"]
+material_override = ExtResource("1_5h601")
+mesh = SubResource("BoxMesh_8id4c")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ENV/Floor"]
+shape = SubResource("BoxShape3D_qf0gf")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="ENV"]
+use_collision = true
+
+[node name="Box" type="MeshInstance3D" parent="ENV/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+material_override = ExtResource("1_5h601")
+mesh = SubResource("BoxMesh_2a11r")
+skeleton = NodePath("../..")
+
+[node name="Wall_1" type="MeshInstance3D" parent="ENV/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 25.5)
+material_override = ExtResource("1_5h601")
+mesh = SubResource("BoxMesh_8cu8s")
+skeleton = NodePath("../..")
+
+[node name="Wall_2" type="MeshInstance3D" parent="ENV/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -25.5)
+material_override = ExtResource("1_5h601")
+mesh = SubResource("BoxMesh_8cu8s")
+skeleton = NodePath("../..")
+
+[node name="Wall_3" type="MeshInstance3D" parent="ENV/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -25.5, 2, -1.11464e-06)
+material_override = ExtResource("1_5h601")
+mesh = SubResource("BoxMesh_8cu8s")
+skeleton = NodePath("../..")
+
+[node name="Wall_4" type="MeshInstance3D" parent="ENV/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.5, 2, 1.11464e-06)
+material_override = ExtResource("1_5h601")
+mesh = SubResource("BoxMesh_8cu8s")
+skeleton = NodePath("../..")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="ENV/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.75698, 6.33179, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ENV/CSGCombiner3D/RigidBody3D"]
+material_override = ExtResource("3_8bh8j")
+mesh = SubResource("BoxMesh_ftj5o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ENV/CSGCombiner3D/RigidBody3D"]
+shape = SubResource("BoxShape3D_u7hj7")
+
+[node name="Enemy_Box" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.1, 0)
+material_override = ExtResource("3_8bh8j")
+size = Vector3(1, 2, 1)
+
+[node name="Enemy_Box2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.1, 2.5)
+material_override = ExtResource("3_8bh8j")
+size = Vector3(1, 2, 1)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.448505, -0.106635, -0.887396, 0, 0.992857, -0.119307, 0.89378, 0.05351, 0.445302, -12.4748, 0.336888, 10.6886)
