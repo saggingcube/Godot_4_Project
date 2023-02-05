@@ -3,6 +3,8 @@ extends Control
 ##RESOLUTION 
 @onready var resolution_dropdown = $Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Resolution_Dropdown_Button
 @onready var fullscreen_dropdown = $Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Fullscreen_Dropdown_Button
+@onready var anti_aliasing_dropdown = $"Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Anti Aliasing_Dropdown_Button"
+@onready var TAA_button = $Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/TAA_CheckButton
 
 var available_resolutions : Dictionary = {
 	"3840 x 2160" : Vector2(3840,2160),
@@ -37,10 +39,11 @@ func _process(delta):
 func add_items():
 	var current_resolution : Vector2 = DisplayServer.window_get_size()
 	var current_window_mode = DisplayServer.window_get_mode()
-	
+
+
 	print_debug(current_resolution)
 	print_debug(current_window_mode)
-	
+	print_debug("START TAA: ", get_viewport().use_taa)
 	var Resolution_Index = 0
 	var Fullscreen_Index = 0
 	
@@ -61,7 +64,8 @@ func add_items():
 #			fullscreen_dropdown.select(Fullscreen_Index)
 #		Fullscreen_Index += 1
 	#resolution_dropdown.add_item(DisplayServer.get_window_list())
-
+	
+	TAA_button.button_pressed = get_viewport().use_taa
 	pass
 
 func _on_exit_button_pressed():
@@ -101,6 +105,7 @@ func _on_options_button_toggled(button_pressed):
 
 
 ################RESOLUTION BUTTONS##################
+
 func _on_resolution_dropdown_button_item_selected(index):
 	var resolution_size = available_resolutions.get(resolution_dropdown.get_item_text(index))
 	DisplayServer.window_set_size(resolution_size)
@@ -114,6 +119,7 @@ func _on_fullscreen_dropdown_button_item_selected(index):
 	pass # Replace with function body.
 
 ################AUDIO BUTTONS##################
+
 func _on_master_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(0,linear_to_db(value))
 	print_debug(linear_to_db(value))
@@ -123,7 +129,13 @@ func _on_music_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(1,linear_to_db(value))
 	print_debug(linear_to_db(value))
 	pass # Replace with function body.
+	
+################ANTI ALIASING BUTTONS##################
 
+func _on_taa_check_button_toggled(button_pressed):
+	get_viewport().use_taa = button_pressed
+	print_debug("PRESSED TAA: ", get_viewport().use_taa)
+	pass # Replace with function body.
 
 ################INFO HOVER##################
 func _on_resolution_dropdown_button_focus_entered():
@@ -133,3 +145,9 @@ func _on_resolution_dropdown_button_focus_entered():
 func _on_resolution_dropdown_button_focus_exited():
 	tool_tip_label.text = tool_tip_label_text
 	pass # Replace with function body.
+
+
+
+
+
+
