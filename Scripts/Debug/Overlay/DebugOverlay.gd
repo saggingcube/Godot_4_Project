@@ -21,7 +21,7 @@ func _input(event):
 			n.visible = not n.visible
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var label_text : String = ""
 	
 	var fps = Engine.get_frames_per_second()

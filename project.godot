@@ -15,16 +15,21 @@ config/features=PackedStringArray("4.0", "Forward Plus")
 run/max_fps=143
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://Data/Music Mixer/Master_Mixer.tres"
+
 [autoload]
 
 GlobalSettings="*res://Scripts/Data/Settings/Global_Settings.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=2560
+window/size/viewport_height=1440
 window/vsync/vsync_mode=0
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
 
 [input]
 
@@ -39,4 +44,4 @@ p_console={
 lights_and_shadows/use_physical_light_units=true
 textures/default_filters/anisotropic_filtering_level=3
 environment/ssao/half_size=false
-anti_aliasing/quality/use_taa=true
+anti_aliasing/quality/screen_space_aa=1

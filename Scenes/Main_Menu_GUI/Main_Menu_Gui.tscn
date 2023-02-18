@@ -1,14 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://bspkmivb4231k"]
+[gd_scene load_steps=17 format=3 uid="uid://bspkmivb4231k"]
 
 [ext_resource type="FontFile" uid="uid://dfi5j804u0r2v" path="res://Data/Fonts/RobotoCondensed-Bold.ttf" id="1_auxyk"]
 [ext_resource type="Script" path="res://Scripts/Game/Main_Menu.gd" id="1_u4et0"]
+[ext_resource type="Theme" uid="uid://bur528ubwrr6" path="res://Data/Themes/Base_Theme.tres" id="3_axeif"]
 [ext_resource type="StyleBox" uid="uid://be0a3mde2032c" path="res://Data/Themes/Flat Styles/dropdown_style_box_flat.tres" id="3_orttl"]
-[ext_resource type="AudioStream" uid="uid://bv7fjf27eutcq" path="res://Art/Music/password-infinity-123276.mp3" id="4_cb1fh"]
+[ext_resource type="AudioStream" uid="uid://cyjtc4q8jd2fa" path="res://Art/Music/dark-ambient-126122.mp3" id="3_ovbia"]
+[ext_resource type="AudioStream" uid="uid://081dihcitpob" path="res://Art/SFX/fire.wav" id="5_fa0hx"]
+[ext_resource type="ButtonGroup" uid="uid://bxkwtblf42ppw" path="res://Data/Button_Data/back_button_group.tres" id="6_0veck"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttvul"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gujn3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8k463"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8cbaw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgukv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w31eh"]
@@ -36,116 +48,146 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u4et0")
+back_button_group = ExtResource("6_0veck")
 
-[node name="Game_Title" type="Label" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 158.0
-offset_top = 143.0
-offset_right = 1661.0
-offset_bottom = 407.0
-theme_override_fonts/font = ExtResource("1_auxyk")
-theme_override_font_sizes/font_size = 128
-text = "G A M E - T I T L E"
-vertical_alignment = 1
-
-[node name="Build_Title" type="Label" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 158.0
-offset_top = 407.0
-offset_right = 1661.0
-offset_bottom = 475.0
-theme_override_fonts/font = ExtResource("1_auxyk")
-theme_override_font_sizes/font_size = 32
-text = "--------BUILD_0.01--------"
-vertical_alignment = 1
-
-[node name="Main_Panel" type="Panel" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 158.0
-offset_top = 533.0
-offset_right = 529.0
-offset_bottom = 977.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ttvul")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Main_Panel"]
+[node name="Start_Menu_MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_bottom = 150
 
-[node name="Play_Button" type="Button" parent="Main_Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+[node name="Control" type="Control" parent="Start_Menu_MarginContainer"]
 layout_mode = 2
+
+[node name="Game_Title" type="Label" parent="Start_Menu_MarginContainer/Control"]
+layout_mode = 0
+offset_right = 911.0
+offset_bottom = 154.0
+size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("1_auxyk")
-theme_override_styles/normal = SubResource("StyleBoxFlat_8cbaw")
-text = "PLAY GAME"
-alignment = 0
+theme_override_font_sizes/font_size = 128
+text = "G A M E - T I T L E"
+vertical_alignment = 1
 
-[node name="Character_Button" type="Button" parent="Main_Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
+[node name="Build_Title" type="Label" parent="Start_Menu_MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -385.0
+offset_right = 2410.0
+offset_bottom = -344.0
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_auxyk")
-theme_override_styles/normal = SubResource("StyleBoxFlat_8cbaw")
-text = "LOAD CHARACTER"
-alignment = 0
+theme_override_font_sizes/font_size = 32
+text = "--------BUILD_0.01--------"
+vertical_alignment = 1
 
-[node name="Credits_Button" type="Button" parent="Main_Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+[node name="Main_Panel" type="Panel" parent="Start_Menu_MarginContainer/Control"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_auxyk")
-theme_override_styles/normal = SubResource("StyleBoxFlat_8cbaw")
-text = "CREDITS
-"
-alignment = 0
-
-[node name="Options_Button" type="Button" parent="Main_Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_auxyk")
-theme_override_styles/normal = SubResource("StyleBoxFlat_8cbaw")
-text = "OPTIONS
-"
-alignment = 0
-
-[node name="Exit_Button" type="Button" parent="Main_Panel/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_auxyk")
-theme_override_styles/normal = SubResource("StyleBoxFlat_8cbaw")
-text = "QUIT
-"
-alignment = 0
-
-[node name="Options_Panel" type="Panel" parent="."]
-layout_mode = 2
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_right = 2410.0
+offset_bottom = 1190.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ttvul")
 
-[node name="Panel2" type="Panel" parent="Options_Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Start_Menu_MarginContainer/Control/Main_Panel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -920.0
-offset_top = -500.0
-offset_right = 920.0
-offset_bottom = 500.0
+offset_top = 108.0
+offset_right = 121.0
+offset_bottom = 324.0
+grow_vertical = 2
+alignment = 1
+
+[node name="Play_Button" type="Button" parent="Start_Menu_MarginContainer/Control/Main_Panel/VBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme = ExtResource("3_axeif")
+theme_override_fonts/font = ExtResource("1_auxyk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gujn3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8k463")
+text = "PLAY GAME"
+alignment = 0
+
+[node name="Character_Button" type="Button" parent="Start_Menu_MarginContainer/Control/Main_Panel/VBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_auxyk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8cbaw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sgukv")
+text = "LOAD CHARACTER"
+alignment = 0
+
+[node name="Credits_Button" type="Button" parent="Start_Menu_MarginContainer/Control/Main_Panel/VBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_auxyk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8cbaw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sgukv")
+text = "CREDITS
+"
+alignment = 0
+
+[node name="Options_Button" type="Button" parent="Start_Menu_MarginContainer/Control/Main_Panel/VBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_auxyk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8cbaw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sgukv")
+text = "OPTIONS
+"
+alignment = 0
+
+[node name="Exit_Button" type="Button" parent="Start_Menu_MarginContainer/Control/Main_Panel/VBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_auxyk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8cbaw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sgukv")
+text = "QUIT
+"
+alignment = 0
+
+[node name="Music_AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ovbia")
+autoplay = true
+bus = &"Music"
+
+[node name="Option_MarginContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 150
+
+[node name="Options_Panel" type="Panel" parent="Option_MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ttvul")
+
+[node name="Panel2" type="Panel" parent="Option_MarginContainer/Options_Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(960, 540)
 
-[node name="Settings_TabContainer" type="TabContainer" parent="Options_Panel/Panel2"]
+[node name="Settings_TabContainer" type="TabContainer" parent="Option_MarginContainer/Options_Panel/Panel2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -157,10 +199,10 @@ theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_ea10v")
 theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_6eec1")
 tab_alignment = 1
 
-[node name="VIDEO" type="TabBar" parent="Options_Panel/Panel2/Settings_TabContainer"]
+[node name="VIDEO" type="TabBar" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -169,11 +211,11 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Panel" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer"]
+[node name="Panel" type="Panel" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -183,7 +225,7 @@ text = "VIDEO SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -197,7 +239,7 @@ offset_bottom = -61.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 20
@@ -205,11 +247,11 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Resolution_Dropdown_Button" type="OptionButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Resolution_Dropdown_Button" type="OptionButton" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 tooltip_text = "This will change your game resolution"
@@ -217,14 +259,14 @@ theme_override_styles/focus = ExtResource("3_orttl")
 theme_override_styles/disabled = ExtResource("3_orttl")
 alignment = 2
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Resolution_Dropdown_Button"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Resolution_Dropdown_Button"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "RESOLUTIONS"
 vertical_alignment = 1
 
-[node name="Refresh_Rate_Dropdown_Button" type="OptionButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Refresh_Rate_Dropdown_Button" type="OptionButton" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_styles/focus = ExtResource("3_orttl")
@@ -242,28 +284,28 @@ popup/item_3/id = 3
 popup/item_4/text = "30"
 popup/item_4/id = 4
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Refresh_Rate_Dropdown_Button"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Refresh_Rate_Dropdown_Button"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "REFRESH RATE"
 vertical_alignment = 1
 
-[node name="Fullscreen_Dropdown_Button" type="OptionButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Fullscreen_Dropdown_Button" type="OptionButton" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_styles/focus = ExtResource("3_orttl")
 theme_override_styles/disabled = ExtResource("3_orttl")
 alignment = 2
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Fullscreen_Dropdown_Button"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Fullscreen_Dropdown_Button"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "WINDOW SETTINGS"
 vertical_alignment = 1
 
-[node name="Vsync_Dropdown_Button" type="OptionButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Vsync_Dropdown_Button" type="OptionButton" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_styles/focus = ExtResource("3_orttl")
@@ -277,14 +319,14 @@ popup/item_1/id = 1
 popup/item_2/text = "Adaptive"
 popup/item_2/id = 2
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Vsync_Dropdown_Button"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Vsync_Dropdown_Button"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "VSYNC"
 vertical_alignment = 1
 
-[node name="Anti Aliasing_Dropdown_Button" type="OptionButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Anti Aliasing_Dropdown_Button" type="OptionButton" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_styles/focus = ExtResource("3_orttl")
@@ -298,58 +340,58 @@ popup/item_1/id = 1
 popup/item_2/text = "Adaptive"
 popup/item_2/id = 2
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Anti Aliasing_Dropdown_Button"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Anti Aliasing_Dropdown_Button"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "ANTI ALIASING"
 vertical_alignment = 1
 
-[node name="TAA_CheckButton" type="CheckButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="TAA_CheckButton" type="CheckButton" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/TAA_CheckButton"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/TAA_CheckButton"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "ENABLE TAA"
 vertical_alignment = 1
 
-[node name="Bloom_CheckButton" type="CheckButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Bloom_CheckButton" type="CheckButton" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Bloom_CheckButton"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Bloom_CheckButton"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "ENABLE BLOOM"
 vertical_alignment = 1
 
-[node name="Motion_Blur_CheckButton2" type="CheckButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Motion_Blur_CheckButton2" type="CheckButton" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Motion_Blur_CheckButton2"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Motion_Blur_CheckButton2"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "ENABLE MOTION BLUR"
 vertical_alignment = 1
 
-[node name="SSAO_CheckButton3" type="CheckButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="SSAO_CheckButton3" type="CheckButton" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SSAO_CheckButton3"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SSAO_CheckButton3"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "ENABLE SSAO"
 vertical_alignment = 1
 
-[node name="SSAO_Quality_Dropdown_Button" type="OptionButton" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="SSAO_Quality_Dropdown_Button" type="OptionButton" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 theme_override_styles/focus = ExtResource("3_orttl")
@@ -365,14 +407,14 @@ popup/item_2/id = 2
 popup/item_3/text = "Low"
 popup/item_3/id = 3
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SSAO_Quality_Dropdown_Button"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SSAO_Quality_Dropdown_Button"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "ANTI ALIASING QUALITY"
 vertical_alignment = 1
 
-[node name="Back_Button" type="Button" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel"]
+[node name="Video_Back_Button" type="Button" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -381,13 +423,15 @@ anchor_bottom = 1.0
 offset_top = -61.0
 grow_horizontal = 2
 grow_vertical = 0
+toggle_mode = true
+button_group = ExtResource("6_0veck")
 text = "BACK"
 
-[node name="Panel2" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer"]
+[node name="Panel2" type="Panel" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel2"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel2"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -397,7 +441,7 @@ text = "INFO"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel2"]
+[node name="Panel" type="Panel" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -407,7 +451,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_1al2c")
 
-[node name="MarginContainer" type="MarginContainer" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel2/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel2/Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -419,17 +463,17 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 10
 
-[node name="Tool_Tip_Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel2/Panel/MarginContainer"]
+[node name="Tool_Tip_Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel2/Panel/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 text = "INFORMATION TEXT"
 horizontal_alignment = 1
 
-[node name="AUDIO" type="TabBar" parent="Options_Panel/Panel2/Settings_TabContainer"]
+[node name="AUDIO" type="TabBar" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -438,11 +482,11 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Panel" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer"]
+[node name="Panel" type="Panel" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -452,7 +496,7 @@ text = "AUDIO SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -466,7 +510,7 @@ offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 20
@@ -474,15 +518,15 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 15
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Master_Panel" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Master_Panel" type="Panel" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Master_Panel"]
+[node name="GridContainer" type="GridContainer" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Master_Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -492,13 +536,13 @@ grow_vertical = 2
 theme_override_constants/h_separation = 10
 columns = 2
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Master_Panel/GridContainer"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Master_Panel/GridContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "MASTER"
 vertical_alignment = 1
 
-[node name="Master_Slider" type="HSlider" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Master_Panel/GridContainer"]
+[node name="Master_Slider" type="HSlider" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Master_Panel/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -506,11 +550,11 @@ max_value = 1.0
 step = 0.02
 value = 0.5
 
-[node name="Music_Panel" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="Music_Panel" type="Panel" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Music_Panel"]
+[node name="GridContainer" type="GridContainer" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Music_Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -520,13 +564,13 @@ grow_vertical = 2
 theme_override_constants/h_separation = 10
 columns = 2
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Music_Panel/GridContainer"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Music_Panel/GridContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "MUSIC"
 vertical_alignment = 1
 
-[node name="Music_Slider" type="HSlider" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Music_Panel/GridContainer"]
+[node name="Music_Slider" type="HSlider" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Music_Panel/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -534,11 +578,11 @@ max_value = 1.0
 step = 0.02
 value = 0.5
 
-[node name="SFX_Panel" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="SFX_Panel" type="Panel" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel"]
+[node name="GridContainer" type="GridContainer" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -548,23 +592,25 @@ grow_vertical = 2
 theme_override_constants/h_separation = 10
 columns = 2
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel/GridContainer"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel/GridContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "SFX"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel/GridContainer"]
+[node name="VFX_Slider" type="HSlider" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-value = 50.0
+max_value = 1.0
+step = 0.02
+value = 1.0
 
-[node name="SFX_Panel2" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
+[node name="SFX_Panel2" type="Panel" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel2"]
+[node name="GridContainer" type="GridContainer" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -574,19 +620,19 @@ grow_vertical = 2
 theme_override_constants/h_separation = 10
 columns = 2
 
-[node name="Label" type="Label" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel2/GridContainer"]
+[node name="Label" type="Label" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel2/GridContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "VOICE"
 vertical_alignment = 1
 
-[node name="HSlider" type="HSlider" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel2/GridContainer"]
+[node name="HSlider" type="HSlider" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel2/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 value = 50.0
 
-[node name="Back_Button" type="Button" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel"]
+[node name="Audio_Back_Button" type="Button" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -595,32 +641,36 @@ anchor_bottom = 1.0
 offset_top = -61.0
 grow_horizontal = 2
 grow_vertical = 0
+toggle_mode = true
+button_group = ExtResource("6_0veck")
 text = "BACK"
 
-[node name="Panel2" type="Panel" parent="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer"]
+[node name="Panel2" type="Panel" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CONTROLS" type="TabBar" parent="Options_Panel/Panel2/Settings_TabContainer"]
+[node name="CONTROLS" type="TabBar" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="ACCESSIBILITY" type="TabBar" parent="Options_Panel/Panel2/Settings_TabContainer"]
+[node name="ACCESSIBILITY" type="TabBar" parent="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
 visible = false
-stream = ExtResource("4_cb1fh")
+stream = ExtResource("5_fa0hx")
 autoplay = true
-bus = &"Music"
+bus = &"SFX"
 
-[connection signal="toggled" from="Main_Panel/VBoxContainer/Options_Button" to="." method="_on_options_button_toggled"]
-[connection signal="pressed" from="Main_Panel/VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]
-[connection signal="focus_entered" from="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Resolution_Dropdown_Button" to="." method="_on_resolution_dropdown_button_focus_entered"]
-[connection signal="focus_exited" from="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Resolution_Dropdown_Button" to="." method="_on_resolution_dropdown_button_focus_exited"]
-[connection signal="item_selected" from="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Resolution_Dropdown_Button" to="." method="_on_resolution_dropdown_button_item_selected"]
-[connection signal="item_selected" from="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Fullscreen_Dropdown_Button" to="." method="_on_fullscreen_dropdown_button_item_selected"]
-[connection signal="toggled" from="Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/TAA_CheckButton" to="." method="_on_taa_check_button_toggled"]
-[connection signal="value_changed" from="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Master_Panel/GridContainer/Master_Slider" to="." method="_on_master_slider_value_changed"]
-[connection signal="value_changed" from="Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Music_Panel/GridContainer/Music_Slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="Start_Menu_MarginContainer/Control/Main_Panel/VBoxContainer/Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Start_Menu_MarginContainer/Control/Main_Panel/VBoxContainer/Options_Button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Start_Menu_MarginContainer/Control/Main_Panel/VBoxContainer/Exit_Button" to="." method="_on_exit_button_pressed"]
+[connection signal="focus_entered" from="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Resolution_Dropdown_Button" to="." method="_on_resolution_dropdown_button_focus_entered"]
+[connection signal="focus_exited" from="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Resolution_Dropdown_Button" to="." method="_on_resolution_dropdown_button_focus_exited"]
+[connection signal="item_selected" from="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Resolution_Dropdown_Button" to="." method="_on_resolution_dropdown_button_item_selected"]
+[connection signal="item_selected" from="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Fullscreen_Dropdown_Button" to="." method="_on_fullscreen_dropdown_button_item_selected"]
+[connection signal="toggled" from="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/VIDEO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/TAA_CheckButton" to="." method="_on_taa_check_button_toggled"]
+[connection signal="value_changed" from="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Master_Panel/GridContainer/Master_Slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/Music_Panel/GridContainer/Music_Slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Option_MarginContainer/Options_Panel/Panel2/Settings_TabContainer/AUDIO/HBoxContainer/Panel/ScrollContainer/MarginContainer/VBoxContainer/SFX_Panel/GridContainer/VFX_Slider" to="." method="_on_vfx_slider_value_changed"]
